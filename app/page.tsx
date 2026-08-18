@@ -14,6 +14,8 @@ const content = {
     charged: ["Plant hire", "$212/hr", "Fuel levy", "+8.5%", "Mobilisation", "Weekly"],
     intro: "Materials arrive, equipment is hired and the site has to keep moving. When a purchase order is raised after the invoice arrives, teams can end up copying the invoice price into the PO. The control has already failed.",
     problemExtra: "If the supplier has charged the wrong rate, the same wrong rate can appear on the invoice and purchase order, then pass through approval unnoticed.",
+    contextStat: "3,472 construction companies entered external administration or had a controller appointed in 2025–26, more than any other Australian industry.",
+    contextSource: "ASIC Insolvency Statistics",
     guide: "Tendering already puts construction margins under pressure. We spent years inside finance teams finding these pricing gaps manually. That experience taught us where they hide, why approval controls miss them and what evidence finance teams need to act.",
     metrics: [["29%", "under budget on a national capital-works program"], ["70%", "faster supplier approval"], ["40%", "faster tender assessment"]],
     riskTitle: "The gap gets harder to explain",
@@ -29,6 +31,7 @@ const content = {
     result: "A number you can stand behind",
     resultCopy: "Finance and procurement get evidence they can take to project leaders, auditors and the board.",
     resultPoints: ["Every gap named and quantified", "A written report that is yours to keep", "No software installed or systems changed"],
+    finalNote: "No software installation. No changes to your systems. Just a clear answer based on the contracts and invoices you already have.",
   },
   care: {
     label: "Healthcare & Aged Care",
@@ -39,6 +42,8 @@ const content = {
     charged: ["Linen service", "$4.76", "Annual rise", "7.0%", "Rebate", "Missing"],
     intro: "Linen, cleaning, food and pest control run on contracts negotiated centrally, often years before the goods arrive. Site teams approve the invoice without ever seeing that negotiation.",
     problemExtra: "Care labour gets reviewed line by line at the board table. The contracted half of the cost base rarely gets the same attention, even when annual increases and rebates move away from the signed terms.",
+    contextStat: "$66.86 per resident, per day, is spent on hotel services alone. Some of that is internal labour. The rest runs on supplier contracts that are rarely rechecked.",
+    contextSource: "Australian Government Financial Report on the Australian Aged Care Sector 2023–24",
     guide: "Care margins are already thin. We spent years inside finance teams fixing supplier invoice problems by hand before building software to do it. That is how we know where to look and how to turn each gap into evidence the board can use.",
     metrics: [["8,000", "invoices per FTE, before"], ["23,000", "invoices per FTE, after"], ["60%", "less manual handling"]],
     riskTitle: "The gap does not close on its own",
@@ -54,6 +59,7 @@ const content = {
     result: "The number the board can act on",
     resultCopy: "Every overcharge, missed rebate and manual hour is named and quantified in one written report.",
     resultPoints: ["Every rate-card gap named and quantified", "A real number for the board, not a guess", "Nothing signed or installed"],
+    finalNote: "No software installation. Nothing in your systems changes. You keep the findings whatever the diagnostic discovers.",
   },
 };
 
@@ -96,11 +102,11 @@ export function SectorLanding({ initialSector = "construction", showSwitcher = t
           <div className="actions"><a className="primary" href={talk}>Talk to Nitin <span>↗</span></a><a className="textLink" href="#checks">See what we check ↓</a></div>
           <p className="reassure">20 minutes. No software pitch. Just your process.</p>
         </div>
-        <div className="supplierVisual"><img src={sector === "healthcare" ? "/cash-deployment.png" : "/supplier-application.png"} alt={sector === "healthcare" ? "Cash deployment ranked by return with budget, projected savings and invoice opportunities" : "Supplier application progress showing registration, identity validation, procurement approval and ERP creation"} /></div>
+        <div className="supplierVisual"><img src={sector === "care" ? "/cash-deployment.png" : "/supplier-application.png"} alt={sector === "care" ? "Cash deployment ranked by return with budget, projected savings and invoice opportunities" : "Supplier application progress showing registration, identity validation, procurement approval and ERP creation"} /></div>
       </section>
 
       <section className="problem">
-        <div className="wrap narrow"><p className="sectionNo">01 / THE GAP</p><h2>You agreed on a price.<br />You should be charged that price.</h2><p>{c.intro}</p><p>{c.problemExtra}</p><div className="comparison"><RateBlock title="Contract agreed" rows={c.agreed}/><RateBlock title="Invoice charged" rows={c.charged} danger /></div><blockquote>Somewhere between the contract and the invoice, the agreed price stops being true.</blockquote></div>
+        <div className="wrap narrow"><p className="sectionNo">01 / THE GAP</p><h2>You agreed on a price.<br />You should be charged that price.</h2><p>{c.intro}</p><p>{c.problemExtra}</p><div className="comparison"><RateBlock title="Contract agreed" rows={c.agreed}/><RateBlock title="Invoice charged" rows={c.charged} danger /></div><blockquote>Somewhere between the contract and the invoice, the agreed price stops being true.</blockquote><aside className="contextStat"><strong>{c.contextStat}</strong><span>Source: {c.contextSource}</span></aside></div>
       </section>
 
       <section className="guide wrap"><p className="sectionNo">02 / WHY SPC3</p><div><h2>Built from years inside finance teams.</h2><p>{c.guide}</p><blockquote>“We went from 8,000 to 23,000 invoices per FTE, each year.” <span>Finance Director, Australian enterprise</span></blockquote></div></section>
@@ -128,7 +134,7 @@ export function SectorLanding({ initialSector = "construction", showSwitcher = t
 
       <section className="offer wrap"><p className="sectionNo">06 / WHAT YOU RECEIVE</p><h2>A clear answer before any software conversation.</h2><div><article><b>01</b><h3>A written report</h3><p>See what the current AP process is costing and where the gaps originate.</p></article><article><b>02</b><h3>Evidence you can use</h3><p>Take quantified findings to procurement, executives, auditors and the board.</p></article><article><b>03</b><h3>No system change</h3><p>Start with the contracts and invoices you already have. Nothing installed.</p></article></div></section>
 
-      <section className="finalCta"><div className="wrap"><p className="eyebrow light"><i /> Start with the invoices you have</p><h2>Find out what your AP process is really costing you.</h2><p>One conversation to see whether the four-week AP Diagnostic is worth running in your organisation.</p><a className="primary pale" href={talk}>Talk to Nitin <span>↗</span></a></div></section>
+      <section className="finalCta"><div className="wrap"><p className="eyebrow light"><i /> Start with the invoices you have</p><h2>Find out what your AP process is really costing you.</h2><p>One conversation to see whether the four-week AP Diagnostic is worth running in your organisation.</p><p className="finalNote">{c.finalNote}</p><a className="primary pale" href={talk}>Talk to Nitin <span>↗</span></a></div></section>
       <footer className="wrap"><Logo /><p>Accounts payable and procurement automation for enterprise teams.</p><a href="https://spc3.com/">spc3.com ↗</a></footer>
     </main>
   );
