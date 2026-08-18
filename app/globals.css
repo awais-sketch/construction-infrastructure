@@ -70,3 +70,7 @@ html,body{overflow-x:hidden}h1{font-size:clamp(38px,3.6vw,50px)}.problem h2,.pla
 
 /* Full left-aligned Why SPC3 section */
 .guide{display:block;padding:68px 0 52px}.guide>.sectionNo{margin-bottom:28px}.guide>div{width:100%;max-width:1180px}.guide h2{max-width:900px}.guide>div>p{max-width:1060px}.guide blockquote{max-width:1060px}
+
+/* Balance the plan section and remove dead space */
+.plan{padding-top:44px;padding-bottom:34px}.planIntro{align-self:center}.steps{align-self:start}
+@media(max-width:900px){.planIntro{align-self:start}.plan{padding-top:52px;padding-bottom:40px}}
